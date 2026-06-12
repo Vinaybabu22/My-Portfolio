@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamidi Vinay Babu | Portfolio</title>
+
+    <meta name="description"
+        content="Portfolio of Mamidi Vinay Babu - MCA Student, Aspiring Software Developer, Python Developer, and Full Stack Developer.">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scrollProgress" class="scroll-progress"></div>
+
+
+    <header class="header">
+        <nav class="navbar container">
+
+            <div class="logo">
+                <span>Vinay.</span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="menu-btn" id="menuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+
+        <!-- Particle Animation Canvas -->
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <p class="hero-tag">
+                    Welcome to my portfolio
+                </p>
+
+                <h1>
+                    Mamidi <span>Vinay Babu</span>
+                </h1>
+
+                <h2>
+                    <span id="typing-text"></span>
+                </h2>
+
+                <p class="hero-description">
+                    MCA Student passionate about Software Development,
+                    Python, Machine Learning, and
+                    Full Stack Development.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn">
+                        View Projects
+                    </a>
+
+                    <a href="#contact" class="btn secondary-btn">
+                        Contact Me
+                    </a>
+                </div>
+
+                <div class="social-icons">
+
+                    <a href="https://github.com/Vinaybabu22" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/mamidi-vinay-babu-627822250" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                    <a href="https://leetcode.com/u/MAMIDI_VINAY_BABU/" target="_blank">
+                        <i class="fa-solid fa-code"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+                <img src="assets/profile.jpg" alt="Mamidi Vinay Babu" class="profile-image">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about" class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+
+            <div class="about-content">
+
+                <p>
+                    I am an MCA student passionate about Software Development,
+                    Machine Learning and Web Technologies.
+                </p>
+
+                <p>
+                    During my undergraduate studies, I realized that practical
+                    technical skills are essential for building a successful IT
+                    career. This motivated me to pursue MCA and continuously
+                    improve my skills in Python, SQL, DSA and Full Stack
+                    Development.
+                </p>
+
+                <p>
+                    Seeking a challenging role at a reputed IT organization to
+                    utilize my skills and contribute to company growth while
+                    continuously enhancing my knowledge and expertise.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="skills" class="section section-bg">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-card" style="--delay: 1;">
+                    <h3>Python</h3>
+                    <div class="progress">
+                        <span data-width="90%"></span>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--delay: 2;">
+                    <h3>Machine Learning</h3>
+                    <div class="progress">
+                        <span data-width="80%"></span>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--delay: 3;">
+                    <h3>SQL</h3>
+                    <div class="progress">
+                        <span data-width="75%"></span>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--delay: 4;">
+                    <h3>HTML</h3>
+                    <div class="progress">
+                        <span data-width="75%"></span>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--delay: 5;">
+                    <h3>CSS</h3>
+                    <div class="progress">
+                        <span data-width="75%"></span>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--delay: 6;">
+                    <h3>Flask</h3>
+                    <div class="progress">
+                        <span data-width="65%"></span>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--delay: 7;">
+                    <h3>DSA</h3>
+                    <div class="progress">
+                        <span data-width="55%"></span>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--delay: 8;">
+                    <h3>Git / GitHub</h3>
+                    <div class="progress">
+                        <span data-width="45%"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects" class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+
+            <div class="project-grid">
+
+                <div class="project-card" style="--delay: 1;">
+
+                    <h3>
+                        Gold Value Prediction Using Machine Learning
+                    </h3>
+
+                    <p>
+                        Predicts gold prices using historical market data and
+                        Random Forest Regression with visual analytics.
+                    </p>
+
+                    <div class="tech-stack">
+                        Random Forest • Pandas • NumPy • Matplotlib • Seaborn
+                    </div>
+
+                </div>
+
+                <div class="project-card" style="--delay: 2;">
+
+                    <h3>
+                        AI Powered Web-Based Code Compiler
+                    </h3>
+
+                    <p>
+                        Multi-language compiler with AI debugging assistance,
+                        complexity analysis and code optimization suggestions.
+                    </p>
+
+                    <div class="tech-stack">
+                        Flask • SQLAlchemy • Mistral AI • Python
+                    </div>
+
+                    <a href="https://github.com/Vinaybabu22/AI-compiler" target="_blank" class="project-link">
+                        View Project
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="education" class="section section-bg">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item" style="--delay: 1;">
+
+                    <h3>
+                        Master of Computer Applications (MCA)
+                    </h3>
+
+                    <p>
+                        Avanthi Institute of Engineering & Technology
+                    </p>
+
+                    <span>
+                        2024 - 2026
+                    </span>
+
+                </div>
+
+                <div class="timeline-item" style="--delay: 2;">
+
+                    <h3>
+                        B.Sc. (Mathematics, Electronics & Computer Science)
+                    </h3>
+
+                    <p>
+                        Dr. Lankapalli Bullayya College
+                    </p>
+
+                    <span>
+                        2021 - 2024
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="certificates" class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Certificates</h2>
+            </div>
+
+            <div class="certificate-grid">
+
+                <div class="certificate-card" style="--delay: 1;">
+                    <img src="assets/certificates/nptel-ml.jpg" alt="NPTEL ML Certificate">
+                    <h3>
+                        NPTEL - Introduction to Machine Learning
+                    </h3>
+                </div>
+
+                <div class="certificate-card" style="--delay: 2;">
+                    <img src="assets/certificates/nptel-python.jpg" alt="NPTEL Python Certificate">
+                    <h3>
+                        NPTEL - Python for Data Science
+                    </h3>
+                </div>
+
+                <div class="certificate-card" style="--delay: 3;">
+                    <img src="assets/certificates/smartinternz.jpg" alt="SmartInternz Certificate">
+                    <h3>
+                        Front-End Developer Internship
+                    </h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact" class="section section-bg">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- Contact Details -->
+                <div class="contact-details">
+
+                    <div class="contact-item" style="--delay: 1;">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <span>Visakhapatnam, Andhra Pradesh, India</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item" style="--delay: 2;">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <span>vinaybabu267@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item" style="--delay: 3;">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <span>7032055366</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container" style="--delay: 2;">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="formName">Name</label>
+                            <input type="text" id="formName" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formEmail">Email</label>
+                            <input type="email" id="formEmail" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formMessage">Message</label>
+                            <textarea id="formMessage" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn submit-btn">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                        <div id="formStatus" class="form-status"></div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Mamidi Vinay Babu. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+        <svg class="progress-ring" width="46" height="46">
+            <circle class="progress-ring__circle" stroke="var(--accent)" stroke-width="3" fill="transparent" r="20" cx="23" cy="23"/>
+        </svg>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
