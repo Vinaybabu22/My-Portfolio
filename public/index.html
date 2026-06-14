@@ -14,6 +14,9 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Devicon - Official Tech Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 
 <body>
@@ -86,7 +89,11 @@
                         View Projects
                     </a>
 
-                    <a href="#contact" class="btn secondary-btn">
+                    <button id="viewResumeBtn" class="btn secondary-btn">
+                        <i class="fa-solid fa-file-pdf"></i> View Resume
+                    </button>
+
+                    <a href="#contact" class="btn outline-btn">
                         Contact Me
                     </a>
                 </div>
@@ -160,61 +167,208 @@
                 <h2>Skills</h2>
             </div>
 
+            <div class="skills-tabs-container">
+                <div class="skills-tabs">
+                    <button class="skills-tab-btn active" data-filter="all">All Skills</button>
+                    <button class="skills-tab-btn" data-filter="languages">Languages & Core</button>
+                    <button class="skills-tab-btn" data-filter="ml-data">Data Science & ML</button>
+                    <button class="skills-tab-btn" data-filter="web">Web & Tools</button>
+                </div>
+            </div>
+
             <div class="skills-grid">
 
-                <div class="skill-card" style="--delay: 1;">
-                    <h3>Python</h3>
-                    <div class="progress">
-                        <span data-width="90%"></span>
+                <!-- Python -->
+                <div class="skill-card" style="--delay: 1;" data-category="languages" data-percent="90">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-icon-img">
+                            <h3 class="skill-name">Python</h3>
+                            <span class="skill-grade">A+</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-icon-img-sm">
+                            <h3 class="skill-name-sm">Python</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="90%"></span></div>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <span class="skill-grade-hover">A+</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-card" style="--delay: 2;">
-                    <h3>Machine Learning</h3>
-                    <div class="progress">
-                        <span data-width="80%"></span>
+                <!-- Machine Learning -->
+                <div class="skill-card" style="--delay: 2;" data-category="ml-data" data-percent="80">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="Machine Learning" class="skill-icon-img">
+                            <h3 class="skill-name">Machine Learning</h3>
+                            <span class="skill-grade">A</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="Machine Learning" class="skill-icon-img-sm">
+                            <h3 class="skill-name-sm">Machine Learning</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="80%"></span></div>
+                                <span class="skill-pct">80%</span>
+                            </div>
+                            <span class="skill-grade-hover">A</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-card" style="--delay: 3;">
-                    <h3>SQL</h3>
-                    <div class="progress">
-                        <span data-width="75%"></span>
+                <!-- SQL -->
+                <div class="skill-card" style="--delay: 3;" data-category="languages" data-percent="75">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon-img">
+                            <h3 class="skill-name">SQL</h3>
+                            <span class="skill-grade">B+</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon-img-sm">
+                            <h3 class="skill-name-sm">SQL</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="75%"></span></div>
+                                <span class="skill-pct">75%</span>
+                            </div>
+                            <span class="skill-grade-hover">B+</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-card" style="--delay: 4;">
-                    <h3>HTML</h3>
-                    <div class="progress">
-                        <span data-width="75%"></span>
+                <!-- HTML -->
+                <div class="skill-card" style="--delay: 4;" data-category="web" data-percent="75">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon-img">
+                            <h3 class="skill-name">HTML5</h3>
+                            <span class="skill-grade">B+</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon-img-sm">
+                            <h3 class="skill-name-sm">HTML5</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="75%"></span></div>
+                                <span class="skill-pct">75%</span>
+                            </div>
+                            <span class="skill-grade-hover">B+</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-card" style="--delay: 5;">
-                    <h3>CSS</h3>
-                    <div class="progress">
-                        <span data-width="75%"></span>
+                <!-- CSS -->
+                <div class="skill-card" style="--delay: 5;" data-category="web" data-percent="75">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="skill-icon-img">
+                            <h3 class="skill-name">CSS3</h3>
+                            <span class="skill-grade">B+</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="skill-icon-img-sm">
+                            <h3 class="skill-name-sm">CSS3</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="75%"></span></div>
+                                <span class="skill-pct">75%</span>
+                            </div>
+                            <span class="skill-grade-hover">B+</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-card" style="--delay: 6;">
-                    <h3>Flask</h3>
-                    <div class="progress">
-                        <span data-width="65%"></span>
+                <!-- Flask -->
+                <div class="skill-card" style="--delay: 6;" data-category="web" data-percent="65">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask" class="skill-icon-img skill-icon-invert">
+                            <h3 class="skill-name">Flask</h3>
+                            <span class="skill-grade">B</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask" class="skill-icon-img-sm skill-icon-invert-sm">
+                            <h3 class="skill-name-sm">Flask</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="65%"></span></div>
+                                <span class="skill-pct">65%</span>
+                            </div>
+                            <span class="skill-grade-hover">B</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-card" style="--delay: 7;">
-                    <h3>DSA</h3>
-                    <div class="progress">
-                        <span data-width="55%"></span>
+                <!-- DSA -->
+                <div class="skill-card" style="--delay: 7;" data-category="languages" data-percent="55">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <!-- Custom DSA Binary-Tree SVG -->
+                            <svg class="skill-icon-img skill-dsa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 92">
+                                <g stroke="#2563eb" stroke-width="4" stroke-linecap="round" fill="none">
+                                    <line x1="50" y1="22" x2="26" y2="44"/>
+                                    <line x1="50" y1="22" x2="74" y2="44"/>
+                                    <line x1="26" y1="58" x2="14" y2="74"/>
+                                    <line x1="26" y1="58" x2="38" y2="74"/>
+                                    <line x1="74" y1="58" x2="62" y2="74"/>
+                                    <line x1="74" y1="58" x2="86" y2="74"/>
+                                </g>
+                                <circle cx="50" cy="13" r="12" fill="#2563eb"/>
+                                <circle cx="26" cy="51" r="10" fill="#2563eb"/>
+                                <circle cx="74" cy="51" r="10" fill="#2563eb"/>
+                                <circle cx="14" cy="82" r="8" fill="#3b82f6"/>
+                                <circle cx="38" cy="82" r="8" fill="#3b82f6"/>
+                                <circle cx="62" cy="82" r="8" fill="#3b82f6"/>
+                                <circle cx="86" cy="82" r="8" fill="#3b82f6"/>
+                            </svg>
+                            <h3 class="skill-name">DSA</h3>
+                            <span class="skill-grade">C</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <!-- White DSA SVG for hover overlay -->
+                            <svg class="skill-icon-img-sm skill-dsa-hover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 92">
+                                <g stroke="white" stroke-width="4" stroke-linecap="round" fill="none">
+                                    <line x1="50" y1="22" x2="26" y2="44"/>
+                                    <line x1="50" y1="22" x2="74" y2="44"/>
+                                    <line x1="26" y1="58" x2="14" y2="74"/>
+                                    <line x1="26" y1="58" x2="38" y2="74"/>
+                                    <line x1="74" y1="58" x2="62" y2="74"/>
+                                    <line x1="74" y1="58" x2="86" y2="74"/>
+                                </g>
+                                <circle cx="50" cy="13" r="12" fill="white"/>
+                                <circle cx="26" cy="51" r="10" fill="white"/>
+                                <circle cx="74" cy="51" r="10" fill="white"/>
+                                <circle cx="14" cy="82" r="8" fill="rgba(255,255,255,0.7)"/>
+                                <circle cx="38" cy="82" r="8" fill="rgba(255,255,255,0.7)"/>
+                                <circle cx="62" cy="82" r="8" fill="rgba(255,255,255,0.7)"/>
+                                <circle cx="86" cy="82" r="8" fill="rgba(255,255,255,0.7)"/>
+                            </svg>
+                            <h3 class="skill-name-sm">DSA</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="55%"></span></div>
+                                <span class="skill-pct">55%</span>
+                            </div>
+                            <span class="skill-grade-hover">C</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-card" style="--delay: 8;">
-                    <h3>Git / GitHub</h3>
-                    <div class="progress">
-                        <span data-width="45%"></span>
+                <!-- Git / GitHub -->
+                <div class="skill-card" style="--delay: 8;" data-category="web" data-percent="45">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-icon-img">
+                            <h3 class="skill-name">Git / GitHub</h3>
+                            <span class="skill-grade">C</span>
+                        </div>
+                        <div class="skill-card-hover">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-icon-img-sm">
+                            <h3 class="skill-name-sm">Git / GitHub</h3>
+                            <div class="skill-progress-wrap">
+                                <div class="skill-progress-bar"><span class="skill-progress-fill" data-width="45%"></span></div>
+                                <span class="skill-pct">45%</span>
+                            </div>
+                            <span class="skill-grade-hover">C</span>
+                        </div>
                     </div>
                 </div>
 
@@ -232,9 +386,21 @@
                 <h2>Featured Projects</h2>
             </div>
 
+            <div class="project-controls">
+                <div class="project-search">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="projectSearch" placeholder="Search projects by name or technology...">
+                </div>
+                <div class="project-filters">
+                    <button class="project-filter-btn active" data-filter="all">All Projects</button>
+                    <button class="project-filter-btn" data-filter="ml">Machine Learning</button>
+                    <button class="project-filter-btn" data-filter="fullstack">Full Stack</button>
+                </div>
+            </div>
+
             <div class="project-grid">
 
-                <div class="project-card" style="--delay: 1;">
+                <div class="project-card" style="--delay: 1;" data-category="ml" data-tech="random forest pandas numpy matplotlib seaborn gold value prediction machine learning ml python">
 
                     <h3>
                         Gold Value Prediction Using Machine Learning
@@ -251,7 +417,7 @@
 
                 </div>
 
-                <div class="project-card" style="--delay: 2;">
+                <div class="project-card" style="--delay: 2;" data-category="fullstack" data-tech="flask sqlalchemy mistral ai python compiler web code artificial intelligence full stack">
 
                     <h3>
                         AI Powered Web-Based Code Compiler
@@ -336,25 +502,46 @@
 
             <div class="certificate-grid">
 
-                <div class="certificate-card" style="--delay: 1;">
-                    <img src="assets/certificates/nptel-ml.jpg" alt="NPTEL ML Certificate">
-                    <h3>
-                        NPTEL - Introduction to Machine Learning
-                    </h3>
+                <div class="certificate-card" style="--delay: 1;"
+                    data-cert-src="assets/certificates/nptel-ml.jpg"
+                    data-cert-title="NPTEL - Introduction to Machine Learning">
+                    <div class="cert-img-wrap">
+                        <img src="assets/certificates/nptel-ml.jpg" alt="NPTEL ML Certificate">
+                        <div class="cert-overlay">
+                            <button class="cert-view-btn">
+                                <i class="fa-solid fa-eye"></i> View
+                            </button>
+                        </div>
+                    </div>
+                    <h3>NPTEL - Introduction to Machine Learning</h3>
                 </div>
 
-                <div class="certificate-card" style="--delay: 2;">
-                    <img src="assets/certificates/nptel-python.jpg" alt="NPTEL Python Certificate">
-                    <h3>
-                        NPTEL - Python for Data Science
-                    </h3>
+                <div class="certificate-card" style="--delay: 2;"
+                    data-cert-src="assets/certificates/nptel-python.jpg"
+                    data-cert-title="NPTEL - Python for Data Science">
+                    <div class="cert-img-wrap">
+                        <img src="assets/certificates/nptel-python.jpg" alt="NPTEL Python Certificate">
+                        <div class="cert-overlay">
+                            <button class="cert-view-btn">
+                                <i class="fa-solid fa-eye"></i> View
+                            </button>
+                        </div>
+                    </div>
+                    <h3>NPTEL - Python for Data Science</h3>
                 </div>
 
-                <div class="certificate-card" style="--delay: 3;">
-                    <img src="assets/certificates/smartinternz.jpg" alt="SmartInternz Certificate">
-                    <h3>
-                        Front-End Developer Internship
-                    </h3>
+                <div class="certificate-card" style="--delay: 3;"
+                    data-cert-src="assets/certificates/smartinternz.jpg"
+                    data-cert-title="Front-End Developer Internship">
+                    <div class="cert-img-wrap">
+                        <img src="assets/certificates/smartinternz.jpg" alt="SmartInternz Certificate">
+                        <div class="cert-overlay">
+                            <button class="cert-view-btn">
+                                <i class="fa-solid fa-eye"></i> View
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Front-End Developer Internship</h3>
                 </div>
 
             </div>
@@ -450,6 +637,47 @@
         </svg>
         <i class="fa-solid fa-arrow-up"></i>
     </button>
+
+    <!-- Resume Preview Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-file-pdf"></i> Resume Preview</h3>
+                <div class="modal-header-actions">
+                    <button id="downloadResumeBtn" class="modal-action-btn download-btn-animated" aria-label="Download Resume">
+                        <span class="btn-text">Download</span>
+                        <i class="fa-solid fa-download icon-main"></i>
+                        <i class="fa-solid fa-spinner fa-spin icon-loading" style="display: none;"></i>
+                        <i class="fa-solid fa-check icon-success" style="display: none;"></i>
+                    </button>
+                    <button id="printResumeBtn" class="modal-action-btn" aria-label="Print Resume">
+                        <i class="fa-solid fa-print"></i>
+                    </button>
+                    <button id="closeResumeBtn" class="modal-action-btn close-btn" aria-label="Close Preview">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <iframe src="assets/resume.pdf" id="resumeIframe" title="Resume Preview"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate View Modal -->
+    <div id="certModal" class="cert-modal">
+        <div class="cert-modal-content">
+            <div class="cert-modal-header">
+                <h3 id="certModalTitle"><i class="fa-solid fa-certificate"></i> Certificate</h3>
+                <button id="certModalClose" class="modal-action-btn close-btn" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="cert-modal-body">
+                <img id="certModalImg" src="" alt="Certificate Preview">
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 

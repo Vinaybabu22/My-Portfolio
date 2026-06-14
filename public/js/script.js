@@ -174,28 +174,20 @@ window.addEventListener("scroll", () => {
 
 
 /* ==========================================
-   SKILL BAR ANIMATION (Intersection Observer)
+   SKILL PROGRESS FILL - HOVER TRIGGERED
 ========================================== */
 
-const progressBars = document.querySelectorAll(".progress span");
+document.querySelectorAll('.skill-card').forEach(card => {
+    const fill = card.querySelector('.skill-progress-fill');
+    if (!fill) return;
+    const targetWidth = fill.getAttribute('data-width');
 
-const skillObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const bar = entry.target;
-            const targetWidth = bar.getAttribute("data-width");
-            bar.style.width = targetWidth;
-            bar.style.transition = "width 1.5s cubic-bezier(0.25, 1, 0.5, 1)";
-            observer.unobserve(bar);
-        }
+    card.addEventListener('mouseenter', () => {
+        fill.style.width = targetWidth;
     });
-}, {
-    threshold: 0.1
-});
-
-progressBars.forEach(bar => {
-    bar.style.width = "0";
-    skillObserver.observe(bar);
+    card.addEventListener('mouseleave', () => {
+        fill.style.width = '0';
+    });
 });
 
 
@@ -516,3 +508,256 @@ if (contactForm && formStatus) {
 ========================================== */
 
 console.log("Portfolio developed for Mamidi Vinay Babu 🚀");
+
+
+/* ==========================================
+   NEW PORTFOLIO FEATURES LOGIC
+   - Resume Preview Modal & Downloader
+   - Skill Tabs & Scorecard Stars
+   - Combined Project Filter & Search
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. RESUME PREVIEW MODAL & DOWNLOADER
+    const viewResumeBtn = document.getElementById("viewResumeBtn");
+    const resumeModal = document.getElementById("resumeModal");
+    const closeResumeBtn = document.getElementById("closeResumeBtn");
+    const printResumeBtn = document.getElementById("printResumeBtn");
+    const downloadResumeBtn = document.getElementById("downloadResumeBtn");
+    const resumeIframe = document.getElementById("resumeIframe");
+
+    if (viewResumeBtn && resumeModal) {
+        // Open Modal
+        viewResumeBtn.addEventListener("click", () => {
+            resumeModal.classList.add("active");
+            document.body.style.overflow = "hidden"; // Disable scroll
+        });
+
+        // Close Modal via button
+        if (closeResumeBtn) {
+            closeResumeBtn.addEventListener("click", () => {
+                resumeModal.classList.remove("active");
+                document.body.style.overflow = ""; // Enable scroll
+            });
+        }
+
+        // Close Modal via click outside modal-content
+        resumeModal.addEventListener("click", (e) => {
+            if (e.target === resumeModal) {
+                resumeModal.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+        });
+
+        // Print Resume
+        if (printResumeBtn && resumeIframe) {
+            printResumeBtn.addEventListener("click", () => {
+                try {
+                    resumeIframe.contentWindow.focus();
+                    resumeIframe.contentWindow.print();
+                } catch (e) {
+                    console.error("Print error:", e);
+                    // Fallback if cross-origin or blocked
+                    window.open("assets/resume.pdf", "_blank").print();
+                }
+            });
+        }
+
+        // Animated Downloader
+        if (downloadResumeBtn) {
+            downloadResumeBtn.addEventListener("click", () => {
+                const btnText = downloadResumeBtn.querySelector(".btn-text");
+                const iconMain = downloadResumeBtn.querySelector(".icon-main");
+                const iconLoading = downloadResumeBtn.querySelector(".icon-loading");
+                const iconSuccess = downloadResumeBtn.querySelector(".icon-success");
+
+                // Disable button during animation
+                downloadResumeBtn.style.pointerEvents = "none";
+                
+                // State 1: Preparing
+                btnText.textContent = "Preparing...";
+                iconMain.style.display = "none";
+                iconLoading.style.display = "inline-block";
+
+                setTimeout(() => {
+                    // State 2: Downloading
+                    btnText.textContent = "Downloading...";
+                    
+                    // Trigger actual file download
+                    const link = document.createElement("a");
+                    link.href = "assets/resume.pdf";
+                    link.download = "Mamidi_Vinay_Babu_Resume.pdf";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    setTimeout(() => {
+                        // State 3: Success
+                        btnText.textContent = "Downloaded!";
+                        iconLoading.style.display = "none";
+                        iconSuccess.style.display = "inline-block";
+                        downloadResumeBtn.style.background = "#10b981";
+                        downloadResumeBtn.style.borderColor = "#10b981";
+                        downloadResumeBtn.style.color = "white";
+
+                        // Reset button state
+                        setTimeout(() => {
+                            btnText.textContent = "Download";
+                            iconSuccess.style.display = "none";
+                            iconMain.style.display = "inline-block";
+                            downloadResumeBtn.style.background = "";
+                            downloadResumeBtn.style.borderColor = "";
+                            downloadResumeBtn.style.color = "";
+                            downloadResumeBtn.style.pointerEvents = "";
+                        }, 3000);
+
+                    }, 1200);
+
+                }, 1000);
+            });
+        }
+    }
+
+    // 2. SKILL TABS FILTER
+    const skillsTabButtons = document.querySelectorAll(".skills-tab-btn");
+    const skillCards = document.querySelectorAll(".skill-card");
+
+    // Skills Category Filter Tabs
+    skillsTabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            skillsTabButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filter = btn.getAttribute("data-filter");
+
+            skillCards.forEach(card => {
+                const category = card.getAttribute("data-category");
+
+                if (filter === "all" || category === filter) {
+                    card.classList.remove("hidden");
+                    card.style.opacity = "0";
+                    card.style.transform = "translateY(15px) scale(0.95)";
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "";
+                    }, 50);
+                } else {
+                    card.classList.add("hidden");
+                }
+            });
+        });
+    });
+
+    // 3. PROJECT FILTER & SEARCH COMBINED
+    const projectSearchInput = document.getElementById("projectSearch");
+    const projectFilterButtons = document.querySelectorAll(".project-filter-btn");
+    const projectCards = document.querySelectorAll(".project-grid .project-card");
+
+    let currentProjectFilter = "all";
+    let currentProjectSearch = "";
+
+    function filterProjects() {
+        projectCards.forEach(card => {
+            const category = card.getAttribute("data-category") || "";
+            const tech = card.getAttribute("data-tech") || "";
+            const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+            const description = card.querySelector("p")?.textContent.toLowerCase() || "";
+            
+            const matchesCategory = currentProjectFilter === "all" || category === currentProjectFilter;
+            
+            const searchTerms = currentProjectSearch.toLowerCase().trim();
+            const matchesSearch = searchTerms === "" || 
+                title.includes(searchTerms) || 
+                description.includes(searchTerms) || 
+                tech.includes(searchTerms);
+
+            if (matchesCategory && matchesSearch) {
+                card.classList.remove("hidden");
+                // Animate card appearance
+                card.style.opacity = "0";
+                card.style.transform = "translateY(15px) scale(0.98)";
+                setTimeout(() => {
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0) scale(1)";
+                }, 50);
+            } else {
+                card.classList.add("hidden");
+            }
+        });
+    }
+
+    // Event listener for project filter buttons
+    projectFilterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            projectFilterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            
+            currentProjectFilter = btn.getAttribute("data-filter") || "all";
+            filterProjects();
+        });
+    });
+
+    // Event listener for project search input
+    if (projectSearchInput) {
+        projectSearchInput.addEventListener("input", (e) => {
+            currentProjectSearch = e.target.value;
+            filterProjects();
+        });
+    }
+
+    // 4. CERTIFICATE VIEW MODAL
+    const certModal = document.getElementById("certModal");
+    const certModalImg = document.getElementById("certModalImg");
+    const certModalTitle = document.getElementById("certModalTitle");
+    const certModalClose = document.getElementById("certModalClose");
+
+    function openCertModal(src, title) {
+        if (!certModal) return;
+        // Reset animation by re-setting src
+        certModalImg.src = "";
+        certModalTitle.innerHTML = `<i class="fa-solid fa-certificate"></i> ${title}`;
+        certModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        // Small delay so animation triggers fresh
+        setTimeout(() => {
+            certModalImg.src = src;
+            certModalImg.alt = title;
+        }, 50);
+    }
+
+    function closeCertModal() {
+        if (!certModal) return;
+        certModal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    // Bind View buttons
+    document.querySelectorAll(".cert-view-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const card = btn.closest(".certificate-card");
+            const src = card.getAttribute("data-cert-src");
+            const title = card.getAttribute("data-cert-title");
+            openCertModal(src, title);
+        });
+    });
+
+    // Close via X button
+    if (certModalClose) {
+        certModalClose.addEventListener("click", closeCertModal);
+    }
+
+    // Close via backdrop click
+    if (certModal) {
+        certModal.addEventListener("click", (e) => {
+            if (e.target === certModal) closeCertModal();
+        });
+    }
+
+    // Close via Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && certModal && certModal.classList.contains("active")) {
+            closeCertModal();
+        }
+    });
+});
