@@ -1,0 +1,3 @@
+# This project is a static website (HTML/CSS/JS) designed for GitHub Pages.
+# It does not require any Python packages, Node.js modules, or backend runtime to execute.
+# You only need a web browser to view the portfolio.

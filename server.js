@@ -54,69 +54,8 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
         return res.status(400).json({ success: false, error: 'All fields are required.' });
     }
 
-    // Basic email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        return res.status(400).json({ success: false, error: 'Please enter a valid email address.' });
-    }
-
-    try {
-        // Build Transporter using SMTP settings
-        // If credentials are placeholders, log mock output for testing
-        const isPlaceholder = process.env.EMAIL_USER === 'your-email@gmail.com' || !process.env.EMAIL_PASS;
-        
-        if (isPlaceholder) {
-            console.log('\n--- [Mock Mail Server Log] ---');
-            console.log(`To: ${process.env.RECEIVER_EMAIL}`);
-            console.log(`Subject: New Portfolio Message from ${name}`);
-            console.log(`From Details: ${email}`);
-            console.log(`Message Body:\n${message}`);
-            console.log('------------------------------\n');
-            
-            return res.status(200).json({ 
-                success: true, 
-                message: 'Message processed successfully (Mock server log)! Set up your .env SMTP credentials for live routing.' 
-            });
-        }
-
-        const transporter = nodemailer.createTransport({
-            host: process.env.EMAIL_HOST,
-            port: parseInt(process.env.EMAIL_PORT),
-            secure: process.env.EMAIL_SECURE === 'true', // true for 465, false for other ports
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-        });
-
-        // Setup mail options
-        const mailOptions = {
-            from: `"${name}" <${process.env.EMAIL_USER}>`, // Send through host account
-            replyTo: email, // Direct reply back to sender
-            to: process.env.RECEIVER_EMAIL,
-            subject: `Portfolio Contact: Message from ${name}`,
-            text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-            html: `
-                <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-                    <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 8px;">New Portfolio Message</h2>
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-                    <br>
-                    <div style="background-color: #f3f4f6; padding: 15px; border-radius: 8px; border-left: 4px solid #9ca3af;">
-                        <p style="white-space: pre-wrap; margin: 0;">${message}</p>
-                    </div>
-                </div>
-            `
-        };
-
-        // Send Email
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({ success: true, message: 'Your message has been sent successfully!' });
-
-    } catch (error) {
-        console.error('Mail Sending Error:', error);
-        res.status(500).json({ success: false, error: 'Failed to send message. Please try again later.' });
-    }
+    // Backend removed for GitHub Pages deployment
+    res.status(503).json({ success: false, error: 'Form processing is currently unavailable.' });
 });
 
 // Start Server
