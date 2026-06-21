@@ -55,7 +55,6 @@ const typingText = document.getElementById("typing-text");
 const roles = [
     "Aspiring Software Developer",
     "Python Developer",
-    "Data Analyst",
     "Full Stack Developer",
     "MCA Student"
 ];
@@ -191,48 +190,7 @@ document.querySelectorAll('.skill-card').forEach(card => {
 });
 
 
-/* ==========================================
-   SMOOTH SCROLL OFFSET FIX
-========================================== */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-        if (!target) return;
-
-        window.scrollTo({
-            top: target.offsetTop - 70,
-            behavior: "smooth"
-        });
-    });
-});
-
-
-/* ==========================================
-   SMART HIDE/SHOW HEADER ON SCROLL
-========================================== */
-
-let lastScrollTop = 0;
-const headerEl = document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    if (scrollTop > 100) {
-        if (scrollTop > lastScrollTop) {
-            // Scrolling down - hide header
-            headerEl.classList.add("header-hidden");
-        } else {
-            // Scrolling up - show header
-            headerEl.classList.remove("header-hidden");
-        }
-    } else {
-        headerEl.classList.remove("header-hidden");
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
+/* Smooth scrolling and active states handled mostly by CSS and IntersectionObserver now */
 
 
 /* ==========================================
